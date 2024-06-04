@@ -1,4 +1,12 @@
-import { SafeAreaView, Text, Image, Button, TextInput } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  Image,
+  Button,
+  TextInput,
+  View,
+  Alert,
+} from "react-native";
 import tw, { useDeviceContext } from "twrnc";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -22,24 +30,7 @@ function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              header: () => {
-                return (
-                  <SafeAreaView style={tw`h-39`}>
-                    <Text style={tw`text-lg mx-auto py-2`}>Notes</Text>
-                    <TextInput
-                      style={tw`bg-zinc-600 w-[96%] h-10 mx-auto px-2 rounded-xl text-white`}
-                      placeholder={"Search"}
-                      placeholderTextColor={"white"}
-                    />
-                  </SafeAreaView>
-                );
-              },
-            }}
-          />
+          <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Notes" component={NoteScreen} />
         </Stack.Navigator>
       </NavigationContainer>
